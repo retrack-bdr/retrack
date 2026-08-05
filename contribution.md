@@ -46,7 +46,7 @@ Recommended versions:
 Clone the repository:
 
 ```bash
-git clone https://github.com/<organization>/Retrack.git
+git clone https://github.com/retrack-bdr/retrack.git
 cd Retrack
 ```
 
@@ -54,6 +54,11 @@ Install dependencies:
 
 ```bash
 mix setup
+```
+
+Ensure tests pass
+```bash
+mix test
 ```
 
 Run the application:
@@ -78,7 +83,6 @@ Run static analysis:
 
 ```bash
 mix credo
-mix dialyzer
 ```
 
 All CI checks must pass before a pull request can be merged.
@@ -91,11 +95,10 @@ Use descriptive branch names.
 
 Examples:
 
-* feature/document-workflows
-* feature/editor-comments
-* bugfix/export-failure
-* docs/getting-started
-* refactor/document-storage
+* feature-<your_github_name>/document-workflows (eg. develop-W3NDO/document-workflows)
+* bugfix-<your_github_name>/document-workflow-bug
+* docs-<your_github_name>/getting-started
+* refactor-<your_github_name>/document-storage
 
 Avoid generic names such as:
 
@@ -112,13 +115,13 @@ Follow a simple convention.
 Examples:
 
 ```
-feat: add document approval workflow
+feat(branch_name): add document approval workflow
 
-fix: resolve concurrent editing race condition
+fix(branch_name): resolve concurrent editing race condition
 
-docs: improve installation guide
+docs(branch_name): improve installation guide
 
-refactor: simplify workflow executor
+refactor(branch_name): simplify workflow executor
 ```
 
 Keep commits focused on a single logical change whenever possible.
@@ -163,7 +166,7 @@ New functionality should include:
 
 * Unit tests
 * Integration tests where appropriate
-* Documentation examples if public APIs change
+* Documentation examples if public APIs change. 
 
 Features without adequate test coverage are unlikely to be merged.
 
@@ -172,6 +175,8 @@ Features without adequate test coverage are unlikely to be merged.
 # Documentation
 
 Documentation is a first-class contribution.
+
+Prefer module documentation (`@moduledoc`, `@doc`, `@typedoc`)
 
 If your change affects:
 
@@ -182,6 +187,14 @@ If your change affects:
 * Developer workflows
 
 please update the relevant documentation in the same pull request.
+
+## Dependencies
+If you introduce a new dependency, please add it to `docs/dependencies.md` following this format
+
+```markdown
+1. [Dependency](link to github or hexdocs):
+- Reason for dependency.
+```
 
 ---
 
@@ -229,6 +242,12 @@ Include benchmarks when introducing substantial performance changes.
 Please do not disclose security vulnerabilities publicly.
 
 Instead, report them privately to the maintainers so they can be investigated and resolved before public disclosure.
+
+---
+
+# AI Usage
+
+While the use of AI is permitted, fully AI generated PRs will need to be disclosed in the commit messages, and PR message.
 
 ---
 
