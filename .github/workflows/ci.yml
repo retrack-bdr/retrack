@@ -10,6 +10,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    env:
+      MIX_ENV: test
+      DB_PASSWORD: postgres
+
     services:
       postgres:
         image: postgres:15

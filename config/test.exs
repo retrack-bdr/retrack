@@ -17,7 +17,7 @@ end
 # Run `mix help test` for more information.
 config :retrack, Retrack.Repo,
   username: "postgres",
-  password: System.get_env("DB_PASSWORD"),
+  password: System.get_env("DB_PASSWORD", "postgres"),
   hostname: "localhost",
   database: "retrack_test#{System.get_env("MIX_TEST_PARTITION")}",
   pool: Ecto.Adapters.SQL.Sandbox,

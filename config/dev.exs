@@ -13,7 +13,7 @@ end
 # Configure your database
 config :retrack, Retrack.Repo,
   username: "postgres",
-  password: System.get_env("DB_PASSWORD"),
+  password: System.get_env("DB_PASSWORD", "postgres"),
   hostname: "localhost",
   database: "retrack_dev",
   stacktrace: true,
