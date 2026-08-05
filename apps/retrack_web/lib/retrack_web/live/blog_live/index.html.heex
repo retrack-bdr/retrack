@@ -1,10 +1,27 @@
 <Layouts.flash_group flash={@flash} />
-<div class="mx-auto flex p-6">
-  <%= if Enum.empty?(@blogs) do %>
+<div class="mx-auto flex flex-1 p-6">
+  <%= if Enum.empty?(@posts) do %>
     <div class="w-full flex justify-around my-10">
       <h1 class="text-4xl text-center">Keep track of what we're building</h1>
     </div>
   <% else %>
-    <h1 class="text-4xl text-center">Keep track of what we're building</h1>
+    <div class="justify-around min-w-[80%] w-[80%] lg:min-w-[60%] lg:w-[60%] m-auto">
+      <div class="w-full flex flex-col">
+        <%= for post <- @posts do %>
+          <a href="">
+            <div class="flex flex-col p-4 border border-yellow-600 my-5 rounded-sm">
+              <h2 class="text-2xl">[ {post.title} ]</h2>
+              <div class="my-2">
+                <p>
+                  {String.slice(post.body, 0, 200)}
+                  {if String.length(post.body) > 200, do: "..."}
+                </p>
+                <p class="text-sm mt-5">Author: {post.author_name}</p>
+              </div>
+            </div>
+          </a>
+        <% end %>
+      </div>
+    </div>
   <% end %>
 </div>
