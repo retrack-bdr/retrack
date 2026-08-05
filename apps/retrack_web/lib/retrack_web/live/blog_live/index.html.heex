@@ -1,0 +1,10 @@
+<Layouts.flash_group flash={@flash} />
+<div class="mx-auto flex p-6">
+  <%=  if Enum.empty?(@blogs) do%>
+  <div class="w-full flex justify-around my-10">
+    <h1 class="text-4xl text-center"> Keep track of what we're building </h1>
+  </div>
+  <% else %>
+  <h1 class="text-4xl text-center"> Keep track of what we're building </h1>
+  <% end %>
+</div>
