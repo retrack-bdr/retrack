@@ -20,6 +20,7 @@ defmodule RetrackWeb.Router do
     get("/", PageController, :home)
 
     live("/blog", BlogLive.Index)
+    live("/blog/new", BlogLive.Create)
   end
 
   # Other scopes may use custom stacks.
