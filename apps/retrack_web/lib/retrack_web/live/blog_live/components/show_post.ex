@@ -27,7 +27,7 @@ defmodule RetrackWeb.BlogLive.Components.ShowPost do
           <div class="flex flex-wrap gap-2">
             <% tags = @tags || "" %>
             <%= for tag <- String.split(tags, ",") || "" do %>
-              <span class="rounded-md border border-base-300 px-3 py-1 text-sm hover:border-yellow-600">
+              <span class="rounded-md border border-base-300 px-3 py-1 text-sm hover:border-primary">
                 {String.trim(tag)}
               </span>
             <% end %>

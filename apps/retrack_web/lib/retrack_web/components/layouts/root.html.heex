@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="csrf-token" content={get_csrf_token()} />
-    <.live_title default="Retrack" suffix=" · Phoenix Framework" phx-no-format>{assigns[:page_title]}</.live_title>
+    <.live_title default="Retrack" phx-no-format>{assigns[:page_title]}</.live_title>
     <link phx-track-static rel="stylesheet" href={~p"/assets/css/app.css"} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -45,52 +45,53 @@
     </script>
   </head>
   <body class="font-sans flex min-h-screen flex-col">
-    <nav class="">
-      <div class="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
-        <a href="/" class="text-3xl font-semibold tracking-widest hover:text-yellow-600 ">
-          [ RE<span class="text-yellow-600">TRACK</span> ]
+    <% pages = %{
+      "Blog" => "/blog",
+      "About" => "/why"
+    } %>
+    <nav class="border-b border-primary">
+      <div class="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-4 md:flex-row md:items-center md:justify-between">
+        <!-- Logo -->
+        <a href="/" class="text-2xl font-semibold hover:text-primary">
+          [ Re<span class="text-primary">track</span> ]
         </a>
 
-        <div class="flex items-center gap-8">
-          <a
-            href="/"
-            class="pb-1 text-lg font-medium hover:text-yellow-600"
-          >
-            [ Home ]
-          </a>
-
-          <a
-            href="/blog"
-            class="pb-1 text-lg font-medium hover:text-yellow-600"
-          >
-            [ Blog ]
-          </a>
+        <!-- Navigation -->
+        <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 md:justify-end">
+          <%= for {page, link} <- pages do %>
+            <a
+              href={link}
+              class="px-2 py-1 text-base md:text-lg hover:text-primary"
+            >
+              [ {page} ]
+            </a>
+          <% end %>
         </div>
       </div>
     </nav>
-    <main class="flex flex-1">
-      {@inner_content}
+
+    <main class="flex-1">
+      <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        {@inner_content}
+      </div>
     </main>
-    <footer class="border-t border-yellow-600">
-      <div class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-6 py-8 text-sm sm:flex-row">
-        <p>&copy;{"#{Date.utc_today().year}  Retrack. All rights reserved."}</p>
+
+    <footer class="border-t border-primary">
+      <div class="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-8 text-sm md:flex-row md:items-center md:justify-between">
+        <p class="text-center md:text-left">
+          &copy; {"#{Date.utc_today().year} Retrack. All rights reserved."}
+        </p>
 
         <nav aria-label="Footer navigation">
-          <ul class="flex items-center gap-6">
+          <ul class="flex flex-wrap justify-center gap-x-6 gap-y-3 md:justify-end">
             <li>
-              <a
-                href="/"
-                class=""
-              >
+              <a href="/" class="py-1 hover:text-primary">
                 [ Home ]
               </a>
             </li>
 
             <li>
-              <a
-                href="/blog"
-                class=""
-              >
+              <a href="/blog" class="py-1 hover:text-primary">
                 [ Blog ]
               </a>
             </li>
@@ -98,9 +99,11 @@
             <li>
               <a
                 href="https://github.com/retrack-bdr/retrack"
-                class=""
+                target="_blank"
+                rel="noopener noreferrer"
+                class="py-1 hover:text-primary"
               >
-                [ Github ]
+                [ GitHub ]
               </a>
             </li>
           </ul>
