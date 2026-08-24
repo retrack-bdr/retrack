@@ -1,4 +1,5 @@
 defmodule RetrackWeb.Components.OneDocument do
+  @moduledoc false
   use Phoenix.Component
 
   import RetrackWeb.CoreComponents
@@ -20,7 +21,6 @@ defmodule RetrackWeb.Components.OneDocument do
     ~H"""
     <!-- MOBILE -->
     <div class="mx-auto flex w-full max-w-md flex-col gap-4 lg:hidden">
-
       <%= for feature <- Enum.take(@features, 4) do %>
         <.feature feature={feature} />
       <% end %>
@@ -30,12 +30,10 @@ defmodule RetrackWeb.Components.OneDocument do
       <%= for feature <- Enum.drop(@features, 4) do %>
         <.feature feature={feature} />
       <% end %>
-
     </div>
 
     <!-- DESKTOP -->
     <div class="relative mx-auto hidden aspect-square w-full max-w-5xl lg:block">
-
       <!-- SVG -->
       <svg
         class="absolute inset-0 h-full w-full"
@@ -64,7 +62,6 @@ defmodule RetrackWeb.Components.OneDocument do
           {8, 50},
           {20, 20}
         ] do %>
-
           <line
             x1="50"
             y1="50"
@@ -75,7 +72,6 @@ defmodule RetrackWeb.Components.OneDocument do
             marker-end="url(#arrow)"
             class="text-base-300"
           />
-
         <% end %>
       </svg>
 
@@ -115,7 +111,6 @@ defmodule RetrackWeb.Components.OneDocument do
       <div class="absolute left-1/2 top-1/2 w-80 -translate-x-1/2 -translate-y-1/2">
         <.document />
       </div>
-
     </div>
     """
   end
@@ -125,7 +120,6 @@ defmodule RetrackWeb.Components.OneDocument do
   defp feature(assigns) do
     ~H"""
     <div class="flex w-40 flex-col items-center rounded-lg border border-base-300 bg-base-100 p-4 shadow-sm">
-
       <.icon
         name={@feature.icon}
         class="mb-2 h-6 w-6 text-primary"
@@ -134,7 +128,6 @@ defmodule RetrackWeb.Components.OneDocument do
       <span class="text-center text-sm font-medium">
         {@feature.title}
       </span>
-
     </div>
     """
   end
@@ -142,9 +135,7 @@ defmodule RetrackWeb.Components.OneDocument do
   defp document(assigns) do
     ~H"""
     <div class="rounded-xl border border-primary bg-base-100 p-8 shadow-xl">
-
       <div class="flex flex-col items-center gap-4">
-
         <.icon
           name="hero-document-text"
           class="h-16 w-16 text-primary"
@@ -157,9 +148,7 @@ defmodule RetrackWeb.Components.OneDocument do
         <p class="text-center opacity-70">
           The single source of truth for your business workflow.
         </p>
-
       </div>
-
     </div>
     """
   end
