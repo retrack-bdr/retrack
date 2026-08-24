@@ -4,7 +4,7 @@ defmodule RetrackWeb.BlogLive.Index do
 
   alias Retrack.Blog.Blogs
 
-  embed_templates("blog/*")
+  # embed_templates("blog/*")
 
   @impl true
   def mount(_params, _session, socket) do

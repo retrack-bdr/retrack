@@ -21,6 +21,8 @@ defmodule RetrackWeb.Router do
 
     live("/blog", BlogLive.Index)
     live("/blog/new", BlogLive.Create)
+
+    live("/why", WhyLive.Index)
   end
 
   # Other scopes may use custom stacks.

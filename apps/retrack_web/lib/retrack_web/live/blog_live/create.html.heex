@@ -16,24 +16,24 @@
           field={@form[:title]}
           type="text"
           label="Blog Title"
-          class="w-full rounded-sm border border-yellow-600 p-2 text-base"
+          class="w-full rounded-sm border border-primary p-2 text-base"
         />
 
         <.input
           field={@form[:tags]}
           type="text"
           label="Tags"
-          class="w-full rounded-sm border border-yellow-600 p-2 text-base"
+          class="w-full rounded-sm border border-primary p-2 text-base"
         />
 
         <.input
           field={@form[:body]}
           type="textarea"
           label="Body"
-          class="w-full min-h-[50vh] h-[50vh] rounded-sm border border-yellow-600 p-2 text-base"
+          class="w-full min-h-[50vh] h-[50vh] rounded-sm border border-primary p-2 text-base"
         />
 
-        <.button class="p-1 my-2 border rounded-sm hover:border-yellow-600 w-32 hover:cursor-pointer">
+        <.button class="p-1 my-2 border rounded-sm hover:border-primary w-32 hover:cursor-pointer">
           Preview
         </.button>
       </.form>
@@ -49,12 +49,12 @@
     <div class="w-full flex justify-between">
       <button
         phx-click="toggle_preview"
-        class="p-1 border rounded-sm hover:border-yellow-600 w-32 hover:cursor-pointer"
+        class="p-1 border rounded-sm hover:border-primary w-32 hover:cursor-pointer"
       > Edit Post </button>
 
       <button
         phx-click="create_blog"
-        class="p-1 border rounded-sm hover:border-yellow-600 w-32 hover:cursor-pointer"
+        class="p-1 border rounded-sm hover:border-primary w-32 hover:cursor-pointer"
       > Publish Post </button>
     </div>
   <% end %>
